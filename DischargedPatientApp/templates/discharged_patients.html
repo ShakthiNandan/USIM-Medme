@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discharged Patients</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Discharged Patient List</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>IC No. / Passport No.</th>
+                <th>Last Discharged</th>
+                <th>Action</th>
+            </tr>
+            {% for patient in patients %}
+            <tr>
+                <td>{{ patient['id'] }}</td>
+                <td>{{ patient['name'] }}</td>
+                <td>{{ patient['ic_no'] }}</td>
+                <td>{{ patient['last_discharged'] }}</td>
+                <td>
+                    <a href="{{ url_for('view_report', id=patient['id']) }}" class="btn view-report">VIEW REPORT</a>
+                    <form action="{{ url_for('re_admit', id=patient['id']) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn re-admit" onclick="return confirm('Are you sure?')">RE-ADMIT</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
