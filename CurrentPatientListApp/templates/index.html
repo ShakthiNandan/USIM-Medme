@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Patient List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Current Patient List</h1>
+        
+        <!-- Add Patient Form -->
+        <form action="/add" method="post" class="add-form">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="ic_passport" placeholder="IC No. / Passport No." required>
+            <input type="text" name="admitted_date" placeholder="Admitted Date" required>
+            <input type="text" name="remarks" placeholder="Remarks">
+            <button type="submit">Add Patient</button>
+        </form>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>IC No. / Passport No.</th>
+                    <th>Admitted Date</th>
+                    <th>Remarks</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                <tr>
+                    <td>{{ patient[0] }}</td>
+                    <td>{{ patient[1] }}</td>
+                    <td>{{ patient[2] }}</td>
+                    <td>{{ patient[3] }}</td>
+                    <td>{{ patient[4] }}</td>
+                    <td>
+                        <button onclick="openEditModal({{ patient[0] }})">Edit</button>
+                        <button onclick="confirmDischarge({{ patient[0] }})">Discharge</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <form id="editForm" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="ic_passport">IC / Passport No:</label>
+            <input type="text" id="ic_passport" name="ic_passport" required>
+            <label for="remarks">Remarks:</label>
+            <input type="text" id="remarks" name="remarks">
+            <button type="submit">Save</button>
+            <button type="button" onclick="closeEditModal()">Cancel</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

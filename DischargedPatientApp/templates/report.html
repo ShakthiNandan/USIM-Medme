@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Patient Report</h1>
+        <p><strong>Name:</strong> {{ patient['name'] }}</p>
+        <p><strong>IC No. / Passport No.:</strong> {{ patient['ic_no'] }}</p>
+        <p><strong>Last Discharged:</strong> {{ patient['last_discharged'] }}</p>
+        <a href="{{ url_for('discharged_patients') }}" class="btn">Back to List</a>
+    </div>
+</body>
+</html>
