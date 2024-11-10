@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hospital Automation</title>
+    <link rel="stylesheet" href="/static/styles copy.css">
+</head>
+<body>
+    <div class="sidebar">
+        <button id="menu-toggle">☰</button>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Patients</a></li>
+            <li><a href="#">Vital Signs</a></li>
+            <li><a href="#">Intravenous Access</a></li>
+            <li><a href="#">Oxygen Delivery</a></li>
+            <li><a href="#">Drugs</a></li>
+            <li><a href="#">Fluids</a></li>
+            <li><a href="#">Injuries</a></li>
+            <li><a href="#">CPR</a></li>
+            <li><a href="#">Intubation</a></li>
+            <li><a href="#">Toilet & Suturing</a></li>
+            <li><a href="#">Procedure</a></li>
+            <li><a href="#">Referral</a></li>
+            <li><a href="#">Report</a></li>
+        </ul>
+    </div>
+
+    <header>
+        <div class="user-info">
+            <img src="/static/user_icon.png" alt="User Icon">
+            <span>Logged in as: {{ user_email }}</span>
+            <select name="doctor" id="doctor">
+                {% for doctor in doctor_names %}
+                    <option value="{{ doctor }}">{{ doctor }}</option>
+                {% endfor %}
+            </select>
+            <button onclick="logout()">Log Out</button>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="timeline">
+            <h2>Timeline</h2>
+            <p>Upcoming procedures and patient events will be listed here.</p>
+        </div>
+
+        <div class="body-image">
+            <img src="/static/body_image.png" alt="Human Body Image">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('menu-toggle').onclick = function() {
+            document.querySelector('.sidebar').classList.toggle('hidden');
+        };
+
+        function logout() {
+            window.location.href = '/logout';
+        }
+    </script>
+</body>
+</html>

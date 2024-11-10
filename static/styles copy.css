@@ -1,0 +1,147 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    color: #004d40;
+    display: flex;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 220px;
+    background-color: #00796b;
+    color: white;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 220px;
+    right: 0;
+    height: 60px;
+    background-color: #004d40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: white;
+    z-index: 1000;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e0f7fa;
+}
+
+.user-info select {
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-top: 60px;
+    margin-left: 220px;
+    padding: 20px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+}
+
+/* Timeline Section */
+.timeline {
+    background-color: #b2dfdb;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.timeline h2 {
+    color: #00796b;
+}
+
+/* Body Image Section */
+.body-image {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.body-image img {
+    max-width: 300px;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    header {
+        left: 180px;
+    }
+
+    .main-content {
+        margin-left: 180px;
+    }
+}
