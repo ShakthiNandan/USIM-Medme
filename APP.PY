@@ -52,6 +52,14 @@ def dashboard():
         doctor_names=doctor_names
     )
 
+# CPR route (new route for CPR functionality)
+@app.route('/cpr', methods=['GET', 'POST'])
+def cpr():
+    if 'user_id' not in session:
+        return redirect('/')
+
+    return render_template('cpr.html')  # This will link to the CPR page (HTML)
+
 # Logout route
 @app.route('/logout')
 def logout():

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}CPR Module - Hospital Automation{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>CPR Module</h1>
+
+        <div class="counter-container">
+            <h2>Assisted CPR</h2>
+            <p>Cycle: <span id="cycle-counter">0</span></p>
+            <p>Compression & Break Timer: <span id="compression-timer">30</span> seconds</p>
+            <button id="start-assisted-cpr">Start Assisted CPR</button>
+        </div>
+
+        <div class="counter-container">
+            <h2>Manual CPR</h2>
+            <p>Cycle: <span id="manual-cycle-counter">0</span></p>
+            <p>Compression Timer: <span id="manual-compression-timer">30</span> seconds</p>
+            <p>Break Timer: <span id="manual-break-timer">5</span> seconds</p>
+            <button id="start-manual-cpr">Start Manual CPR</button>
+        </div>
+
+        <div class="counter-container">
+            <h2>Manual Intubated CPR</h2>
+            <p>Lap: <span id="lap-counter">0</span></p>
+            <p>Timer: <span id="intubated-timer">120</span> seconds</p>
+            <button id="start-intubated-cpr">Start Manual Intubated CPR</button>
+        </div>
+
+        <div class="controls">
+            <button id="reset-all">Reset All</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
