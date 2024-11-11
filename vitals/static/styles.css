@@ -1,0 +1,130 @@
+/* Body and overall layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Pastel blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main container layout */
+.dashboard-container {
+    display: flex;
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 180px;
+    background-color: #a5d6a7; /* Light green for sidebar */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: inset -1px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3 {
+    color: #00796b;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Menu and Dropdown Styling */
+.menu button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #66bb6a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.menu button:hover {
+    background-color: #4caf50; /* Darker green on hover */
+}
+
+/* Dropdown menu */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.dropdown-content button {
+    background-color: #a5d6a7;
+    margin: 3px 0;
+    width: 100%;
+}
+
+.dropdown-content button:hover {
+    background-color: #66bb6a;
+}
+
+/* Content area */
+.content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+h2 {
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+.form-section {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Label and input styling */
+label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+    color: #00796b;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cfd8dc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #66bb6a;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4caf50;
+}
