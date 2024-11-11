@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vital Signs Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="menu">
+                <h3>Menu</h3>
+                <button onclick="toggleVitalsMenu()">Vitals</button>
+                <div id="vitals-dropdown" class="dropdown-content">
+                    <button onclick="selectVital('blood_pressure')">Blood Pressure</button>
+                    <button onclick="selectVital('heart_rate')">Heart Rate</button>
+                    <button onclick="selectVital('respiratory_rate')">Respiratory Rate</button>
+                    <button onclick="selectVital('oxygen_saturation')">Oxygen Saturation</button>
+                    <button onclick="selectVital('pain_score')">Pain Score</button>
+                    <button onclick="selectVital('temperature')">Temperature</button>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h2 id="form-title">Blood Pressure</h2>
+            <div id="bp-form" class="form-section">
+                <label>Systolic Value:</label>
+                <input type="number" id="systolic" placeholder="0">
+                <label>Diastolic Value:</label>
+                <input type="number" id="diastolic" placeholder="0">
+                <button onclick="saveVital()">Save</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

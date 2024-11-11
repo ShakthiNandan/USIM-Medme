@@ -1,0 +1,74 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Center the container */
+.container {
+    text-align: center;
+    background-color: #e0f7fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Button styles */
+button {
+    background-color: #66bb6a; /* Light green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #388e3c; /* Darker green */
+}
+
+/* Dropdown menu styles */
+#dropdown {
+    display: none;
+    margin-top: 10px;
+}
+
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-item {
+    background-color: #81c784; /* Pastel green */
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.dropdown-item:hover {
+    background-color: #388e3c;
+}
+
+/* Message and data display styles */
+#message {
+    margin-top: 20px;
+    color: #388e3c;
+    font-weight: bold;
+}
+
+#data-display {
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+}

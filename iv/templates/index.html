@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intravenous Access</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="buttons">
+            <button id="iv-access-btn">Intravenous Access</button>
+            <div id="dropdown" class="dropdown-content">
+                <button class="dropdown-item" onclick="saveAccess('Central Venous Catheter')">Central Venous Catheter</button>
+                <button class="dropdown-item" onclick="saveAccess('Peripheral')">Peripheral</button>
+                <button class="dropdown-item" onclick="saveAccess('Intraosseous')">Intraosseous</button>
+            </div>
+        </div>
+
+        <div id="message"></div>
+
+        <div id="data-display"></div>
+    </div>
+
+    <script>
+        // Toggle dropdown menu visibility
+        document.getElementById('iv-access-btn').onclick = function() {
+            var dropdown = document.getElementById('dropdown');
+            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+        };
+
+        // Save the selected intravenous access type to the database
+        function saveAccess(accessType) {
+            fetch('/save', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'access_type=' + accessType
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+                displayData(); // Refresh the data display
+            });
+        }
+
+        // Fetch and display saved data
+        function displayData() {
+            fetch('/data')
+                .then(response => response.json())
+                .then(data => {
+                    let output = '<ul>';
+                    data.forEach(row => {
+                        output += `<li>${row[1]}</li>`; // row[1] holds the access type
+                    });
+                    output += '</ul>';
+                    document.getElementById('data-display').innerHTML = output;
+                });
+        }
+
+        // Initial call to display any existing data
+        displayData();
+    </script>
+</body>
+</html>
